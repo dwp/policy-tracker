@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-large">
+        Check your answers before sending your application
+      </h1>
+
+      <p>
+        When a user has entered data on pages, show it by using code like this:  
+      </p>
+
+      <pre>
+        <div class="code">
+{%- filter escape -%}{%- raw -%}<tr>
+    <td>
+      Vehicle type:
+    </td>
+    <td>
+      {{ session.vehicleType }}
+    </td>
+</tr>{% endraw %}{%- endfilter -%}
+</div>
+</pre>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <table class="check-your-answers">
+
+      <thead>
+        <tr>
+          <th colspan="2">
+            <h2 class="heading-medium">
+              Vehicle details
+            </h2>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            Registration number
+          </td>
+          <td>
+            {{ session.vehicleRegistration | d('not in session') }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vehicle type
+          </td>
+          <td>
+            {{session.vehicleType}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vehicle features
+          </td>
+          <td>
+            {% for feature in session.vehicleFeature %}
+              {% if loop.length > 1 %}
+                {{ feature }}{% if not loop.last %}, {% endif %}
+              {% else %}
+                {{ session.vehicleFeature }}
+              {% endif %}
+            {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-group">
+    <p>
+      <a href="/examples">
+        Return to prototype kit examples
+      </a>
+    </p>
+  </div>
+
+</main>
+
+{% endblock %}
