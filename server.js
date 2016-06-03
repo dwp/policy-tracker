@@ -29,49 +29,82 @@ var path = require('path'),
 app.set('view engine', 'html');
 app.set('views', [__dirname + '/app/views', __dirname + '/lib/views']);
 
+// Support session data
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: Math.round(Math.random()*100000).toString()
+}));
+
 nunjucks.setup({
   autoescape: true,
   watch: true,
   noCache: true
 }, app);
 
-// require core and custom filters, merges to one object
-// and then add the methods to nunjucks env obj
 nunjucks.ready(function(nj) {
-
-  var coreFilters = require(__dirname + '/lib/core_filters.js')(nj),
-    customFilters = require(__dirname + '/app/filters.js')(nj),
+  
+  // require core and custom filters, merges to one object
+  // and then add the methods to nunjucks env obj
+  var coreFilters = require(__dirname + '/lib/core_filters.js')(nj, app),
+    customFilters = require(__dirname + '/app/filters.js')(nj, app),
     filters = Object.assign(coreFilters, customFilters);
   Object.keys(filters).forEach(function(filterName) {
     nj.addFilter(filterName, filters[filterName]);
   });
-
-  app.use(function(req,res,next){
-
-    // add nunjucks function to get values, needs to be here as they need access to req.session
-
-    nj.addGlobal("getValue",function(name){
-        return req.session.data[name];
+  
+  /**
+   * allow to declaratively to add something globally
+   * @method addFilter
+   * @param  {string}  '__setglobal__' name of filterName
+   * @param  {function}  function(v,k) value and the key
+   */
+	nj.addFilter('__setglobal__', function(v, k) {
+		nj.addGlobal(k, v);
+	});
+  
+  // handle adding auto data storage to views
+  app.use(/^\/([^.]+)$/,function(req,res,next){
+    
+    /**
+     * when called will return the value from session object of the key ('name') that's passed in
+     * @method addGlobal
+     * @param  {string}  "getValue"    name of global function to be added
+     * @param  {function}  function('name' key to be looked up from the session object)
+     */
+    nj.addGlobal("getValue", function(name) {
+      return req.session.data[name];
     });
-
-    nj.addGlobal("checked",function(name, value){
+    
+    /**
+     * makes the response locals available to templates
+     * @method addGlobal
+     * @param  {string}  "__locals__" name of the global variables
+     * @param  {object}  res.locals   the response locals object
+     */
+    nj.addGlobal("__locals__", res.locals);
+    
+    /**
+     * when called with return checked if the input 'name' contains the 'value' passed in
+     * @method addGlobal
+     * @param  {string}  "checked"      name of the global function to be added
+     * @param  {function}  function(name, value) 
+     */
+    nj.addGlobal("isChecked",function(name, value){
         var storedValue = nj.globals.getValue(name);
-
-        if (storedValue == undefined){
-          return "";
+        if (storedValue != undefined){
+          if (Array.isArray(storedValue)){
+            return (storedValue.indexOf(value) != -1 ? "checked" : "");
+          } else {
+            return (value == storedValue ? "checked" : "");
+          }
+        } else {
+          return ""  
         }
-
-        if (Array.isArray(storedValue)){
-          var inArray = storedValue.indexOf(value) != -1;
-          return inArray ? "checked" : "";
-        }
-
-        return value == storedValue ? "checked" : "";
-
     });
 
     next();
-
+    
   });
 
   // Authenticate against the environment-provided credentials, if running
@@ -95,21 +128,9 @@ nunjucks.ready(function(nj) {
     extended: true
   }));
 
-  // Support session data
-  app.use(session({
-    resave: false,
-    saveUninitialized: false,
-    secret: Math.round(Math.random()*100000).toString()
-  }));
-
-  // send assetPath to all views
-  app.use(function (req, res, next) {
-    res.locals.asset_path="/public/";
-    next();
-  });
-
   // Add variables that are available in all views
   app.use(function (req, res, next) {
+    res.locals.asset_path="/public/";
     res.locals.serviceName=config.serviceName;
     res.locals.cookieText=config.cookieText;
     res.locals.releaseVersion="v" + releaseVersion;

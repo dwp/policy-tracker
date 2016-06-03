@@ -19,16 +19,17 @@
       </p>
 
       <pre>
-        <div class="code">{% raw %}
-  &lt;tr&gt;
-    &lt;td&gt;
+        <div class="code">
+{%- filter escape -%}{%- raw -%}<tr>
+    <td>
       Vehicle type:
-    &lt;/td&gt;
-    &lt;td&gt;
-      {{vehicleType}}
-    &lt;/td&gt;
-  &lt;/tr&gt;
-  {% endraw %}</div></pre>
+    </td>
+    <td>
+      {{ session.vehicleType }}
+    </td>
+</tr>{% endraw %}{%- endfilter -%}
+</div>
+</pre>
     </div>
   </div>
 
@@ -52,7 +53,7 @@
             Registration number
           </td>
           <td>
-            {{vehicleRegistration}}
+            {{ session.vehicleRegistration | d('not in session') }}
           </td>
         </tr>
         <tr>
@@ -60,7 +61,7 @@
             Vehicle type
           </td>
           <td>
-            {{vehicleType}}
+            {{session.vehicleType}}
           </td>
         </tr>
         <tr>
@@ -68,7 +69,13 @@
             Vehicle features
           </td>
           <td>
-            {{vehicleFeature}}
+            {% for feature in session.vehicleFeature %}
+              {% if loop.length > 1 %}
+                {{ feature }}{% if not loop.last %}, {% endif %}
+              {% else %}
+                {{ session.vehicleFeature }}
+              {% endif %}
+            {% endfor %}
           </td>
         </tr>
       </tbody>
