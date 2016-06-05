@@ -29,13 +29,40 @@ router.get('/', function (req, res) {
  * loop each version route file and bring it in passing router and some config
  */
 glob.sync(prototypePaths.routesGlob).forEach(function(p){
+  
+  var appRoute = prototypePaths.version.replace(':version*', utils.getVersionName(p).title) + '/app/',
+      stepRoute = prototypePaths.step.replace(':version*', utils.getVersionName(p).title);
+      
+  // redirect / to the start page for all versions
+  router.all(appRoute, function(req,res,next){
+    res.redirect(prototypePaths.startPage);
+    next();
+  });
+   
+  // hack to get around the prototyping kit and dynamically routing versions
+  // this will rend the file if it exists rather than via stacic middleware
+  router.get(appRoute + 'assets/:type/:file', function(req,res,next){
+      var type = req.params.type, 
+          file = req.params.file;
+      if (file.indexOf('..') === -1) {
+        return res.sendFile(p.replace(appConfig.versionRoutesFile,'') + '/app/assets/' + type +'/' + file);
+      } else {
+        res.status = 404;
+        return res.send('Not Found');
+      }
+  });
+  
+  // load in the routes file specific to this version
   require(p)(router, { 
+    path: p,
     prototypePaths: prototypePaths,
     routes: {
-      root: prototypePaths.version.replace(':version*', utils.getVersionName(p).title) + '/app/',
-      step: prototypePaths.step.replace(':version*', utils.getVersionName(p).title)
+      root: appRoute,
+      step: stepRoute
     }
   });
+  
+  
 });
 
 /**
@@ -49,7 +76,7 @@ router.use(function(req, res, next){
   // using glob pattern for the predefined folder structure to grep url and title
   glob.sync(prototypePaths.appsGlob).forEach(function(p){
     var v = utils.getVersionName(p);
-    prototype.versions.push({ url: v.computedPath, title: formatTitle(v.title) });
+    prototype.versions.push({ url: '/versions/' + v.computedPath, title: formatTitle(v.title) });
   });
 
   // update locals so this data is accessible
@@ -67,11 +94,14 @@ router.use(function(req, res, next){
  * enhanced context data (useful to nunjucks templates).
  */
 router.all([prototypePaths.version], function(req, res, next){
+  var appPath = '/versions/' + req.params.phase + '/' + req.params.version + '/app/';
   _.merge(res.locals.prototype, {
     current: {
       phase: formatTitle(req.params.phase),
       version: formatTitle(req.params.version),
-      path: '/versions/' + req.params.phase + '/' + req.params.version + '/app/'  
+      body_class: req.params.phase + ' ' + req.params.version,
+      path: appPath,
+      layout: appPath.substring(1) + 'layout.html'
     }
   });
   next();

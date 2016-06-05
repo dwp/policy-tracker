@@ -1,12 +1,10 @@
-{% extends "layouts/dwp_layout.html" %}
+{% extends prototype.current.layout %}
 
 {% set page = {
   title: 'index'
 } %}
 
 {% block primary %}
-
-  {{ __locals__ | log }}
 
   <h1 class="heading-xlarge">App index</h1>
   

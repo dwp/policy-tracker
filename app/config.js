@@ -34,7 +34,9 @@ module.exports = {
   },
   
   // service design stages with iterations (used to generate automatic directory)
-  stages: ['design-sprint']
+  stages: ['design-sprint'],
+  
+  versionRoutesFile: 'version_routes.js'
 
 };
 	

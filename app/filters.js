@@ -48,6 +48,10 @@ module.exports = function(env) {
   filters.contains = function contains(a, s) {
     return a && s ? !!~a.indexOf(s) : false;
   };
+  
+  filters.substring = function substring(s,p) {
+    return s.substring(p);
+  }
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
