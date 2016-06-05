@@ -24,11 +24,18 @@ var formatTitle = function(s) {
 router.get('/', function (req, res) {
   res.redirect('index');
 });
+
 /**
  * loop each version route file and bring it in passing router and some config
  */
 glob.sync(prototypePaths.routesGlob).forEach(function(p){
-  require(p)(router, { prototypePaths: prototypePaths, route: prototypePaths.step.replace(':version*', utils.getVersionName(p).title) });
+  require(p)(router, { 
+    prototypePaths: prototypePaths,
+    routes: {
+      root: prototypePaths.version.replace(':version*', utils.getVersionName(p).title) + '/app/',
+      step: prototypePaths.step.replace(':version*', utils.getVersionName(p).title)
+    }
+  });
 });
 
 /**
@@ -64,7 +71,7 @@ router.all([prototypePaths.version], function(req, res, next){
     current: {
       phase: formatTitle(req.params.phase),
       version: formatTitle(req.params.version),
-      path: '/' + req.params.phase + '/' + req.params.version + '/app/'  
+      path: '/versions/' + req.params.phase + '/' + req.params.version + '/app/'  
     }
   });
   next();
@@ -78,8 +85,9 @@ router.all(prototypePaths.step, function(req,res,next){
   var version = req.params.version || false,
     step = req.params.step || false,
     p = {
-      step: step,
-      page: step
+      current: {
+        page: step
+      }
     }
 
   // update local proto obj with useful data

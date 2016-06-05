@@ -21,17 +21,15 @@ module.exports = {
 
   // this could be accessed from a variety of required js modules so placed here in config
   prototypePaths: {
-    version: '/:phase/:version*',                     // e.g '/alpha/alpha-01/'
-    step: '/:phase/:version*/app/:step',              // e.g '/alpha/alpha-01/app/address'
+    version: '/versions/:phase/:version*',                     // e.g '/versions/alpha/alpha-01/'
+    step: '/versions/:phase/:version*/app/:step*',              // e.g '/versions/alpha/alpha-01/app/address'
+    startPage: 'index',
     appsGlob: [
-      __dirname + '/views/**/index.html',
-      '!' + __dirname + '/views/index.html',
-      '!' + __dirname + '/views/**/app/index.html',
-      '!' + __dirname + 'views/includes/**/.*',
-      '!' + __dirname + 'views/macros/**/.*'
+      __dirname + '/views/versions/**/index.html',
+      '!' + __dirname + '/views/versions/**/app/index.html',
     ],
     routesGlob: [
-      __dirname + '/views/**/version_routes.js'
+      __dirname + '/views/versions/**/version_routes.js'
     ]
   },
   
