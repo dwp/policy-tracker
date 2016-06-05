@@ -65,12 +65,15 @@ nunjucks.ready(function(nj) {
   
   // handle adding auto data storage to views
   app.use(/^\/([^.]+)$/,function(req,res,next){
-    
     /**
-     * when called will return the value from session object of the key ('name') that's passed in
+     * when called will return the value from session object of the key 
+     * ('name') that's passed in
      * @method addGlobal
-     * @param  {string}  "getValue"    name of global function to be added
-     * @param  {function}  function('name' key to be looked up from the session object)
+     * @param  {string}  "getValue"        name of global function to 
+     *                                     be added
+     *                                     
+     * @param  {function}  function('name' key to be looked up from the 
+     *                                     session object)
      */
     nj.addGlobal("getValue", function(name) {
       return req.session.data[name];
