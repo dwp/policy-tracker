@@ -1,0 +1,28 @@
+{% extends "layouts/layout.html" %}
+
+{% block page_title %}
+  {{ (page.title + ' &ndash; ') | safe if page.title }}{{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>
+    
+    {% block main %}      
+    <div class="grid-row">
+      
+      <div class="column-{{ page.primary.col | d('two-thirds') }}">
+        {% block primary %}{% endblock %}
+      </div>
+      
+      {% if page.secondary %}
+      <div class="column-{{ page.secondary.col | d('one-third') }}">
+        {% block secondary %}  
+        {% endblock %}
+      </div>
+      {% endif %}
+      
+    </div>
+    {% endblock %}
+    
+  </main>
+{% endblock %}
