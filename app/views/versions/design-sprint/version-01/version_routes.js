@@ -7,6 +7,7 @@ module.exports = function(router, config) {
         postData = req.body || {};
         
     // place version routing below this line:
+    // console.log(requestedPage);
     
     next();
   

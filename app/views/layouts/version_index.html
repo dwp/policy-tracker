@@ -1,7 +1,8 @@
 {% extends "layouts/dwp_layout.html" %}
 
 {% set page = {
-  title: prototype.current.version
+  title: prototype.current.version,
+  dev: false
 } %}
 
 {% block primary %}
@@ -10,6 +11,10 @@
   
   {% block version_details %}
     <p>This should be populated with notes specific to this iteration/version of the prototype</p>
+  {% endblock %}
+  
+  {% block version_cta %}
+    <p><a class="button" href="{{ prototype.current.path | d('#path-not-set') }}" role="button">Launch {{ prototype.current.version }}</a></p>
   {% endblock %}
   
 {% endblock %}
