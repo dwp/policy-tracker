@@ -32,3 +32,11 @@
     {% endblock %}
   </main>
 {% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  {% if page.dev %}
+    {{ (serviceName + " context data: ") | log(true) }}
+    {{ __locals__ | log }}
+  {% endif %}
+{% endblock %}

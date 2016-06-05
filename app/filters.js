@@ -1,4 +1,6 @@
 module.exports = function(env) {
+  
+  var nunjucksSafe = env.getFilter('safe');
 
   /**
    * Instantiate object used to store the methods registered as a
@@ -49,9 +51,27 @@ module.exports = function(env) {
     return a && s ? !!~a.indexOf(s) : false;
   };
   
+  /**
+   * filter for javascript substring
+   * @method substring
+   * @param  {string}  s the string to be manipulated
+   * @param  {integer}  p the position within the string
+   * @return {string}    the transformed string
+   */
   filters.substring = function substring(s,p) {
     return s.substring(p);
   }
+  
+  /**
+   * logs an object in the template to the console on the client.
+   * @param  {Any} a any type
+   * @param  {bool} fancy will make the log message stand out a bit
+   * @return {String}   a script tag with a console.log call.
+   * @example {{ "hello world" | log }}
+   */
+  filters.log = function log(a, fancy) {
+  	return nunjucksSafe('<script>console.log' + '(' + (fancy? '"%c%s","background: yellow; font-size: 14px;",' : '') + JSON.stringify(a, null, '\t') + ');</script>');
+  };
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
