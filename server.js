@@ -65,7 +65,6 @@ nunjucks.ready(function(nj) {
   
   // handle adding auto data storage to views
   app.use(/^\/([^.]+)$/,function(req,res,next){
-    
     /**
      * when called will return the value from session object of the key ('name') that's passed in
      * @method addGlobal

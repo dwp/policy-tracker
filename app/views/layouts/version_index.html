@@ -1,0 +1,15 @@
+{% extends "layouts/dwp_layout.html" %}
+
+{% set page = {
+  title: prototype.current.version
+} %}
+
+{% block primary %}
+
+  <h1 class="heading-xlarge">{{ prototype.current.version }}</h1>
+  
+  {% block version_details %}
+    <p>This should be populated with notes specific to this iteration/version of the prototype</p>
+  {% endblock %}
+  
+{% endblock %}

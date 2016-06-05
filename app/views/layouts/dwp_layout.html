@@ -5,24 +5,28 @@
 {% endblock %}
 
 {% block content %}
-  <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>
-    
-    {% block main %}      
-    <div class="grid-row">
-      
-      <div class="column-{{ page.primary.col | d('two-thirds') }}">
-        {% block primary %}{% endblock %}
-      </div>
-      
-      {% if page.secondary %}
-      <div class="column-{{ page.secondary.col | d('one-third') }}">
-        {% block secondary %}  
+  <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>    
+    {% block main %}
+      {% block prepend_main %}{% endblock %}
+      <div class="grid-row">
+        
+        {% block __primary__ %}
+          <div class="column-{{ page.primary.col | d('two-thirds') }}">
+            {% block primary %}{% endblock %}
+          </div>
         {% endblock %}
-      </div>
-      {% endif %}
+        
+        {% block __secondary__ %}
+          {% if page.secondary %}
+          <div class="column-{{ page.secondary.col | d('one-third') }}">
+            {% block secondary %}  
+            {% endblock %}
+          </div>
+          {% endif %}
+        {% endblock %}
       
-    </div>
+      </div>
+      {% block append_main %}{% endblock %}
     {% endblock %}
-    
   </main>
 {% endblock %}

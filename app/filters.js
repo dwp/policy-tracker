@@ -39,7 +39,15 @@ module.exports = function(env) {
 
   ------------------------------------------------------------------ */
 
-
+  /**
+  * checks if string contains passed substring
+  * @param {*} a variable - the string you want to test
+  * @param {String} the string you want to test for
+  * @return {Boolean} true if found else false
+   */
+  filters.contains = function contains(a, s) {
+    return a && s ? !!~a.indexOf(s) : false;
+  };
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
