@@ -40,7 +40,7 @@ glob.sync(prototypePaths.routesGlob).forEach(function(p){
   });
    
   // hack to get around the prototyping kit and dynamically routing versions
-  // this will rend the file if it exists rather than via stacic middleware
+  // this will render the file it finds exists rather than via static middleware
   router.get(appRoute + 'assets/:type/:file', function(req,res,next){
       var type = req.params.type, 
           file = req.params.file;
