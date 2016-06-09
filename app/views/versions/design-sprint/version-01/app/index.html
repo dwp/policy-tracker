@@ -2,11 +2,142 @@
 
 {% set page = {
   title: 'index',
-  dev: true
+  dev: true,
+  html_classes: ['full-width']
 } %}
 
-{% block primary %}
-
-  <h1 class="heading-xlarge">App index</h1>
+{% block portfolio_header %}
   
+  <div class="portfolio_header">
+    <div class="grid grid--middle">
+      <div class="grid__item two-thirds">
+        <h1 class="heading-xlarge js-directorates-title">Portfolio Overview</h1>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
+
+{% block portfolio_projects %}
+  
+  <h2 class="heading-large" style="margin: 0 0 20px 0">All directorates</h2>
+  
+  <div class="grid">
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item({
+        priority: 1,
+        metadata: {
+          modifiers: ['lame']
+        }
+      }) }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item({
+        priority: 3
+      }) }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+    <div class="grid__item one-half large--one-third">
+      {{ portfolio.project_item() }}
+    </div>
+  </div>
+{% endblock %}
+
+{% block portfolio_filters %}
+  <div class="portfolio-filters">
+    
+    <h2 class="heading-medium" style="margin: 0 0 20px 0;">Filter the portfolio</h2>
+    <p>Use the facets below to refine your view of the portfolio</p>
+    
+    <div class="portfolio-filters__facet">
+      <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-directorate">Directorate</label>
+      <select class="form-control portfolio-filters__select" id="facet-directorate">
+        <option value="all">All directorates</option>
+        <option>Directorate one</option>
+        <option>Directorate two</option>
+        <option>Directorate three</option>
+        <option>Directorate four</option>
+        <option>Directorate five</option>
+      </select>
+    </div>
+    
+    
+    <div class="portfolio-filters__facet">
+      <h3 class="portfolio-filters__facet__title heading-small">Type</h3>
+      <div class="portfolio-filters__facet">
+        <label for="facer-type-1">
+          <input id="facer-type-1" name="types" type="checkbox" value="animal">
+          Type label
+        </label>
+      </div>
+      <div class="portfolio-filters__facet">
+        <label for="facer-type-2">
+          <input id="facer-type-2" name="types" type="checkbox" value="animal">
+          Type label
+        </label>
+      </div>
+      <div class="portfolio-filters__facet">
+        <label for="facer-type-3">
+          <input id="facer-type-3" name="types" type="checkbox" value="animal">
+          Type label
+        </label>
+      </div>
+    </div>
+    
+    <div class="portfolio-filters__facet">
+      <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-minister">Minister</label>
+      <select class="form-control portfolio-filters__select" id="facet-minister">
+        <option value="all">All ministers</option>
+        <option>First name Surname</option>
+        <option>First name Surname</option>
+        <option>First name Surname</option>
+        <option>First name Surname</option>
+        <option>First name Surname</option>
+      </select>
+    </div>
+    
+    <div class="portfolio-filters__facet">
+      <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-trigger">Trigger</label>
+      <select class="form-control portfolio-filters__select" id="facet-trigger">
+        <option value="all">All triggers</option>
+        <option>Trigger</option>
+        <option>Trigger</option>
+        <option>Trigger</option>
+        <option>Trigger</option>
+      </select>
+    </div>
+    
+    <div class="portfolio-filters__facet">
+      <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-status">Status</label>
+      <select class="form-control portfolio-filters__select" id="facet-status">
+        <option value="all">All statuses</option>
+        <option>Open</option>
+        <option>Scoping</option>
+        <option>Resourcing</option>
+        <option>in development</option>
+        <option>Awaiting decision</option>
+        <option>Closed</option>
+      </select>
+    </div>
+    
+    
+  </div>
+{% endblock %}
+

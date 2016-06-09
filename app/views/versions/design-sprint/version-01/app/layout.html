@@ -1,1 +1,41 @@
+{% import "macros/policy_portfolio.html" as portfolio %}
+
 {% extends "layouts/dwp_layout.html" %}
+
+{% block header_global %}
+  <header class="header-global">
+    <img src="/public/stylesheets/images/gov.uk_logotype_crown.png?0.17.3" width="35" height="31" alt="" class="header-global__logo">
+    <span class="header-global__label">{{ serviceName }}</span>
+  </header>
+{% endblock %}
+
+{% block main %}
+<div class="l-portfolio">
+  
+  <div class="portfolio-header">
+    {% block portfolio_header %}
+    {% endblock %}
+  </div>
+
+  <div class="grid grid--wide grid--rev">
+    
+    <div class="grid__item  medium--two-thirds large--four-fifths">
+      <div class="l-portfolio__projects">
+        {% block portfolio_projects %}
+        {% endblock %}
+      </div>
+    </div>
+    
+    <div class="grid__item medium--one-third large--one-fifth">
+      <div class="l-portfolio__filters">      
+        {% block portfolio_filters %}
+        {% endblock %}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
+
+

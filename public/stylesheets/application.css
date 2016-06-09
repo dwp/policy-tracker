@@ -2069,6 +2069,694 @@ input[type=number] {
   list-style-type: none;
 }
 
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -20px;
+  letter-spacing: -0.31em;
+  box-sizing: border-box;
+}
+
+.opera:-o-prefocus,
+.grid {
+  word-spacing: -0.43em;
+}
+
+.grid__item {
+  box-sizing: border-box;
+  display: inline-block;
+  padding-left: 20px;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.grid--rev {
+  direction: rtl;
+  text-align: left;
+}
+
+.grid--rev > .grid__item {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="rtl"] .grid--rev {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="rtl"] .grid--rev > .grid__item {
+  direction: rtl;
+  text-align: left;
+}
+
+.grid--full {
+  margin-left: 0;
+}
+
+.grid--full > .grid__item {
+  padding-left: 0;
+}
+
+.grid--right {
+  text-align: right;
+}
+
+.grid--right > .grid__item {
+  text-align: left;
+}
+
+.grid--center {
+  text-align: center;
+}
+
+.grid--center > .grid__item {
+  text-align: left;
+}
+
+.grid--middle > .grid__item {
+  vertical-align: middle;
+}
+
+.grid--bottom > .grid__item {
+  vertical-align: bottom;
+}
+
+.grid--narrow {
+  margin-left: -10px;
+}
+
+.grid--narrow > .grid__item {
+  padding-left: 10px;
+}
+
+.grid--wide {
+  margin-left: -40px;
+}
+
+.grid--wide > .grid__item {
+  padding-left: 40px;
+}
+
+.grid--supress-last > .grid__item :last-child {
+  margin-bottom: 0;
+}
+
+.one-whole {
+  width: 100%;
+}
+
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+  width: 50%;
+}
+
+.one-third, .two-sixths, .four-twelfths {
+  width: 33.333%;
+}
+
+.two-thirds, .four-sixths, .eight-twelfths {
+  width: 66.666%;
+}
+
+.one-quarter, .two-eighths, .three-twelfths {
+  width: 25%;
+}
+
+.three-quarters, .six-eighths, .nine-twelfths {
+  width: 75%;
+}
+
+.one-fifth, .two-tenths {
+  width: 20%;
+}
+
+.two-fifths, .four-tenths {
+  width: 40%;
+}
+
+.three-fifths, .six-tenths {
+  width: 60%;
+}
+
+.four-fifths, .eight-tenths {
+  width: 80%;
+}
+
+.one-sixth, .two-twelfths {
+  width: 16.666%;
+}
+
+.five-sixths, .ten-twelfths {
+  width: 83.333%;
+}
+
+.one-eighth {
+  width: 12.5%;
+}
+
+.three-eighths {
+  width: 37.5%;
+}
+
+.five-eighths {
+  width: 62.5%;
+}
+
+.seven-eighths {
+  width: 87.5%;
+}
+
+.one-tenth {
+  width: 10%;
+}
+
+.three-tenths {
+  width: 30%;
+}
+
+.seven-tenths {
+  width: 70%;
+}
+
+.nine-tenths {
+  width: 90%;
+}
+
+.one-twelfth {
+  width: 8.333%;
+}
+
+.five-twelfths {
+  width: 41.666%;
+}
+
+.seven-twelfths {
+  width: 58.333%;
+}
+
+.eleven-twelfths {
+  width: 91.666%;
+}
+
+@media (min-width: 30em) {
+  /* grid classes for small with 8 divisions */
+  .small--one-whole {
+    width: 100%;
+  }
+  .small--one-half, .small--two-quarters, .small--three-sixths, .small--four-eighths {
+    width: 50%;
+  }
+  .small--one-third, .small--two-sixths {
+    width: 33.333%;
+  }
+  .small--two-thirds, .small--four-sixths {
+    width: 66.666%;
+  }
+  .small--one-quarter, .small--two-eighths {
+    width: 25%;
+  }
+  .small--three-quarters, .small--six-eighths {
+    width: 75%;
+  }
+  .small--one-fifth {
+    width: 20%;
+  }
+  .small--two-fifths {
+    width: 40%;
+  }
+  .small--three-fifths {
+    width: 60%;
+  }
+  .small--four-fifths {
+    width: 80%;
+  }
+  .small--one-sixth {
+    width: 16.666%;
+  }
+  .small--five-sixths {
+    width: 83.333%;
+  }
+  .small--one-eighth {
+    width: 12.5%;
+  }
+  .small--three-eighths {
+    width: 37.5%;
+  }
+  .small--five-eighths {
+    width: 62.5%;
+  }
+  .small--seven-eighths {
+    width: 87.5%;
+  }
+}
+
+@media (max-width: 29.99em) {
+  /* grid until classes for small with 8 divisions */
+  .until--small--one-whole {
+    width: 100%;
+  }
+  .until--small--one-half, .until--small--two-quarters, .until--small--three-sixths, .until--small--four-eighths {
+    width: 50%;
+  }
+  .until--small--one-third, .until--small--two-sixths {
+    width: 33.333%;
+  }
+  .until--small--two-thirds, .until--small--four-sixths {
+    width: 66.666%;
+  }
+  .until--small--one-quarter, .until--small--two-eighths {
+    width: 25%;
+  }
+  .until--small--three-quarters, .until--small--six-eighths {
+    width: 75%;
+  }
+  .until--small--one-fifth {
+    width: 20%;
+  }
+  .until--small--two-fifths {
+    width: 40%;
+  }
+  .until--small--three-fifths {
+    width: 60%;
+  }
+  .until--small--four-fifths {
+    width: 80%;
+  }
+  .until--small--one-sixth {
+    width: 16.666%;
+  }
+  .until--small--five-sixths {
+    width: 83.333%;
+  }
+  .until--small--one-eighth {
+    width: 12.5%;
+  }
+  .until--small--three-eighths {
+    width: 37.5%;
+  }
+  .until--small--five-eighths {
+    width: 62.5%;
+  }
+  .until--small--seven-eighths {
+    width: 87.5%;
+  }
+}
+
+@media (min-width: 48em) {
+  /* grid classes for medium with 8 divisions */
+  .medium--one-whole {
+    width: 100%;
+  }
+  .medium--one-half, .medium--two-quarters, .medium--three-sixths, .medium--four-eighths {
+    width: 50%;
+  }
+  .medium--one-third, .medium--two-sixths {
+    width: 33.333%;
+  }
+  .medium--two-thirds, .medium--four-sixths {
+    width: 66.666%;
+  }
+  .medium--one-quarter, .medium--two-eighths {
+    width: 25%;
+  }
+  .medium--three-quarters, .medium--six-eighths {
+    width: 75%;
+  }
+  .medium--one-fifth {
+    width: 20%;
+  }
+  .medium--two-fifths {
+    width: 40%;
+  }
+  .medium--three-fifths {
+    width: 60%;
+  }
+  .medium--four-fifths {
+    width: 80%;
+  }
+  .medium--one-sixth {
+    width: 16.666%;
+  }
+  .medium--five-sixths {
+    width: 83.333%;
+  }
+  .medium--one-eighth {
+    width: 12.5%;
+  }
+  .medium--three-eighths {
+    width: 37.5%;
+  }
+  .medium--five-eighths {
+    width: 62.5%;
+  }
+  .medium--seven-eighths {
+    width: 87.5%;
+  }
+}
+
+@media (max-width: 47.99em) {
+  /* grid until classes for medium with 8 divisions */
+  .until--medium--one-whole {
+    width: 100%;
+  }
+  .until--medium--one-half, .until--medium--two-quarters, .until--medium--three-sixths, .until--medium--four-eighths {
+    width: 50%;
+  }
+  .until--medium--one-third, .until--medium--two-sixths {
+    width: 33.333%;
+  }
+  .until--medium--two-thirds, .until--medium--four-sixths {
+    width: 66.666%;
+  }
+  .until--medium--one-quarter, .until--medium--two-eighths {
+    width: 25%;
+  }
+  .until--medium--three-quarters, .until--medium--six-eighths {
+    width: 75%;
+  }
+  .until--medium--one-fifth {
+    width: 20%;
+  }
+  .until--medium--two-fifths {
+    width: 40%;
+  }
+  .until--medium--three-fifths {
+    width: 60%;
+  }
+  .until--medium--four-fifths {
+    width: 80%;
+  }
+  .until--medium--one-sixth {
+    width: 16.666%;
+  }
+  .until--medium--five-sixths {
+    width: 83.333%;
+  }
+  .until--medium--one-eighth {
+    width: 12.5%;
+  }
+  .until--medium--three-eighths {
+    width: 37.5%;
+  }
+  .until--medium--five-eighths {
+    width: 62.5%;
+  }
+  .until--medium--seven-eighths {
+    width: 87.5%;
+  }
+}
+
+@media (min-width: 60em) {
+  /* grid classes for large with 12 divisions */
+  .large--one-whole {
+    width: 100%;
+  }
+  .large--one-half, .large--two-quarters, .large--three-sixths, .large--four-eighths, .large--five-tenths, .large--six-twelfths {
+    width: 50%;
+  }
+  .large--one-third, .large--two-sixths, .large--four-twelfths {
+    width: 33.333%;
+  }
+  .large--two-thirds, .large--four-sixths, .large--eight-twelfths {
+    width: 66.666%;
+  }
+  .large--one-quarter, .large--two-eighths, .large--three-twelfths {
+    width: 25%;
+  }
+  .large--three-quarters, .large--six-eighths, .large--nine-twelfths {
+    width: 75%;
+  }
+  .large--one-fifth, .large--two-tenths {
+    width: 20%;
+  }
+  .large--two-fifths, .large--four-tenths {
+    width: 40%;
+  }
+  .large--three-fifths, .large--six-tenths {
+    width: 60%;
+  }
+  .large--four-fifths, .large--eight-tenths {
+    width: 80%;
+  }
+  .large--one-sixth, .large--two-twelfths {
+    width: 16.666%;
+  }
+  .large--five-sixths, .large--ten-twelfths {
+    width: 83.333%;
+  }
+  .large--one-eighth {
+    width: 12.5%;
+  }
+  .large--three-eighths {
+    width: 37.5%;
+  }
+  .large--five-eighths {
+    width: 62.5%;
+  }
+  .large--seven-eighths {
+    width: 87.5%;
+  }
+  .large--one-tenth {
+    width: 10%;
+  }
+  .large--three-tenths {
+    width: 30%;
+  }
+  .large--seven-tenths {
+    width: 70%;
+  }
+  .large--nine-tenths {
+    width: 90%;
+  }
+  .large--one-twelfth {
+    width: 8.333%;
+  }
+  .large--five-twelfths {
+    width: 41.666%;
+  }
+  .large--seven-twelfths {
+    width: 58.333%;
+  }
+  .large--eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media (min-width: 80em) {
+  /* grid classes for xlarge with 12 divisions */
+  .xlarge--one-whole {
+    width: 100%;
+  }
+  .xlarge--one-half, .xlarge--two-quarters, .xlarge--three-sixths, .xlarge--four-eighths, .xlarge--five-tenths, .xlarge--six-twelfths {
+    width: 50%;
+  }
+  .xlarge--one-third, .xlarge--two-sixths, .xlarge--four-twelfths {
+    width: 33.333%;
+  }
+  .xlarge--two-thirds, .xlarge--four-sixths, .xlarge--eight-twelfths {
+    width: 66.666%;
+  }
+  .xlarge--one-quarter, .xlarge--two-eighths, .xlarge--three-twelfths {
+    width: 25%;
+  }
+  .xlarge--three-quarters, .xlarge--six-eighths, .xlarge--nine-twelfths {
+    width: 75%;
+  }
+  .xlarge--one-fifth, .xlarge--two-tenths {
+    width: 20%;
+  }
+  .xlarge--two-fifths, .xlarge--four-tenths {
+    width: 40%;
+  }
+  .xlarge--three-fifths, .xlarge--six-tenths {
+    width: 60%;
+  }
+  .xlarge--four-fifths, .xlarge--eight-tenths {
+    width: 80%;
+  }
+  .xlarge--one-sixth, .xlarge--two-twelfths {
+    width: 16.666%;
+  }
+  .xlarge--five-sixths, .xlarge--ten-twelfths {
+    width: 83.333%;
+  }
+  .xlarge--one-eighth {
+    width: 12.5%;
+  }
+  .xlarge--three-eighths {
+    width: 37.5%;
+  }
+  .xlarge--five-eighths {
+    width: 62.5%;
+  }
+  .xlarge--seven-eighths {
+    width: 87.5%;
+  }
+  .xlarge--one-tenth {
+    width: 10%;
+  }
+  .xlarge--three-tenths {
+    width: 30%;
+  }
+  .xlarge--seven-tenths {
+    width: 70%;
+  }
+  .xlarge--nine-tenths {
+    width: 90%;
+  }
+  .xlarge--one-twelfth {
+    width: 8.333%;
+  }
+  .xlarge--five-twelfths {
+    width: 41.666%;
+  }
+  .xlarge--seven-twelfths {
+    width: 58.333%;
+  }
+  .xlarge--eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media (max-width: 29.99em) {
+  .hidden--small {
+    display: none;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .hidden--medium {
+    display: none;
+  }
+}
+
+@media (max-width: 59.99em) {
+  .hidden--large {
+    display: none;
+  }
+}
+
+@media (max-width: 79.99em) {
+  .hidden--xlarge {
+    display: none;
+  }
+}
+
+.ta--right {
+  text-align: right;
+}
+
+.ta--left {
+  text-align: left;
+}
+
+.ta--center {
+  text-align: center;
+}
+
+@media (min-width: 30em) {
+  .small--ta--right {
+    text-align: right;
+  }
+  .small--ta--left {
+    text-align: left;
+  }
+  .small--ta--center {
+    text-align: center;
+  }
+}
+
+@media (max-width: 29.99em) {
+  .until--small--ta--right {
+    text-align: right;
+  }
+  .until--small--ta--left {
+    text-align: left;
+  }
+  .until--small--ta--center {
+    text-align: center;
+  }
+}
+
+@media (min-width: 48em) {
+  .medium--ta--right {
+    text-align: right;
+  }
+  .medium--ta--left {
+    text-align: left;
+  }
+  .medium--ta--center {
+    text-align: center;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .until--medium--ta--right {
+    text-align: right;
+  }
+  .until--medium--ta--left {
+    text-align: left;
+  }
+  .until--medium--ta--center {
+    text-align: center;
+  }
+}
+
+@media (min-width: 60em) {
+  .large--ta--right {
+    text-align: right;
+  }
+  .large--ta--left {
+    text-align: left;
+  }
+  .large--ta--center {
+    text-align: center;
+  }
+}
+
+@media (max-width: 59.99em) {
+  .until--large--ta--right {
+    text-align: right;
+  }
+  .until--large--ta--left {
+    text-align: left;
+  }
+  .until--large--ta--center {
+    text-align: center;
+  }
+}
+
+@media (min-width: 80em) {
+  .xlarge--ta--right {
+    text-align: right;
+  }
+  .xlarge--ta--left {
+    text-align: left;
+  }
+  .xlarge--ta--center {
+    text-align: center;
+  }
+}
+
+@media (max-width: 79.99em) {
+  .until--xlarge--ta--right {
+    text-align: right;
+  }
+  .until--xlarge--ta--left {
+    text-align: left;
+  }
+  .until--xlarge--ta--center {
+    text-align: center;
+  }
+}
+
+.full-width {
+  background: #fff;
+}
+
 .full-width #global-header .header-wrapper {
   max-width: none;
 }
@@ -2099,4 +2787,123 @@ input[type=number] {
 
 .full-width #footer {
   display: none;
+}
+
+.full-width .header-global {
+  background: #000;
+  color: #fff;
+  padding: 5px;
+}
+
+.full-width .header-global__logo, .full-width .header-global__label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.full-width .header-global__label {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.l-portfolio {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.portfolio-filters__select {
+  width: 100%;
+}
+
+.project-item {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 0 0 15px 0;
+}
+
+.project-item__title {
+  margin: 0 0 5px 0;
+}
+
+.project-item__metadata__list {
+  font-size: 16px;
+}
+
+.project-item__metadata__list-item {
+  margin: 0 0 15px 0;
+}
+
+.project-item__metadata__list * {
+  font-size: 100%;
+}
+
+.project-item__metadata__list p {
+  margin: 0;
+}
+
+.project-item__metadata__list__title {
+  font-weight: bold;
+}
+
+.project-item__priority__rating, .project-item__priority__label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.project-item__priority__rating {
+  background: #6db4e1;
+  color: #000;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 22px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.project-item__priority__rating--1 {
+  background-color: #e7980f;
+}
+
+.project-item__priority__rating--2 {
+  background-color: yellow;
+}
+
+.project-item__priority__rating--3 {
+  background-color: green;
+}
+
+.project-item__priority__rating--4 {
+  background-color: blue;
+}
+
+.project-item__priority__rating--5 {
+  background-color: red;
+}
+
+.project-item__priority__label {
+  margin-right: 10px;
+}
+
+.project-item__keydata p {
+  margin: 0;
+}
+
+.project-item--1 {
+  background-color: rgba(231, 152, 15, 0.04);
+}
+
+.project-item--2 {
+  background-color: rgba(255, 255, 0, 0.04);
+}
+
+.project-item--3 {
+  background-color: rgba(0, 128, 0, 0.04);
+}
+
+.project-item--4 {
+  background-color: rgba(0, 0, 255, 0.04);
+}
+
+.project-item--5 {
+  background-color: rgba(255, 0, 0, 0.04);
 }

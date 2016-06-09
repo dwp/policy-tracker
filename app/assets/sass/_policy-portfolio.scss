@@ -1,0 +1,148 @@
+@import 'policy_portfolio/functions';
+@import 'policy_portfolio/settings';
+@import 'policy_portfolio/sass-mq';
+@import 'policy_portfolio/grids';
+@import 'policy_portfolio/generic';
+
+.full-width {
+    background: #fff;
+  
+  #global-header .header-wrapper {
+    max-width:none;
+  }
+  #footer .footer-wrapper {
+    max-width:none;
+  }
+  #global-header #logo img {
+    width:185.00px;
+    height:31px;
+  }
+  #global-header-bar {
+    display:none;
+    max-width:none;
+  }
+  #global-header #logo img {
+    visibility:visible;
+  }
+  #content {
+    max-width:none;
+    padding:0;
+    margin:0;
+  }  
+  
+  #footer {
+    display:none;
+  }
+  
+  .header-global {
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    &__logo,
+    &__label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &__label {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  
+}
+
+$rating-colours:(
+  1: #e7980f,
+  2: yellow,
+  3: green,
+  4: blue,
+  5: red
+);
+
+.l-portfolio {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.portfolio {
+  
+  &-filters {
+    
+    &__select {
+      width: 100%;
+    }
+    
+  }
+  
+}
+
+.project-item {
+  
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 0 0 15px 0;
+  
+  &__title {
+    margin: 0 0 5px 0;
+  }
+  
+  &__metadata {
+    &__list {
+      font-size: 16px;
+      &-item {
+        margin: 0 0 15px 0;
+      }
+      * {
+        font-size: 100%;
+      }
+      p {
+        margin: 0;
+      }
+      &__title {
+        font-weight: bold;
+      }
+    }
+  }
+  
+  &__priority {
+    &__rating,
+    &__label {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    &__rating {
+      background: #6db4e1;
+      color: #000;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 22px;
+      font-weight: bold;
+      vertical-align: middle;
+      
+      @each $rating, $colour in $rating-colours {
+        &--#{$rating} {
+          background-color: $colour;
+        }
+      }
+      
+    }
+    &__label {
+      margin-right: 10px;
+    }
+  }
+  
+  &__keydata {
+    p {
+      margin: 0;
+    }
+  }
+  
+  @each $rating, $colour in $rating-colours {
+    &--#{$rating} {
+      background-color: rgba($colour,0.04);
+    }
+  }
+  
+}
