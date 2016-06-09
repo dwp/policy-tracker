@@ -165,3 +165,16 @@ $rating-colours:(
   }
   
 }
+
+.portfolio-sort {
+  
+  &__label,
+  &__select {
+    display: inline-block;
+  }
+  
+  &__select {
+    
+  }
+  
+}

@@ -18,7 +18,24 @@
 
 {% block portfolio_projects %}
   
-  <h2 class="heading-large js-directorate-label" style="margin: 0 0 20px 0">All directorates</h2>
+  <div class="grid">
+    <div class="grid__item one-half">
+      <h2 class="heading-large js-directorate-label" style="margin: 0 0 20px 0">All directorates</h2>
+    </div>
+    <div class="grid__item one-half ta--right">
+      <div class="portfolio-sort">
+        <label class="portfolio-sort__label" for="sort-select">Sort by </label>
+        <select class="form-control portfolio-sort__select js-sort-select" id="sort-select">
+          <option value="original-order">Choose</option>
+          <option value="priority">By Priority</option>
+          <option value="date">By Date</option>
+          <option value="name">By title</option>
+          <option value="status">By Status</option>
+          <option value="random">Random</option>
+        </select>
+      </div>
+    </div>
+  </div>
   
   <div class="grid js-projects-grid">
       {{ portfolio.project_item({
@@ -45,6 +62,7 @@
         director: 'Justin Russell',
         directorate: 'Health & Work',
         priority: 2,
+        duedate: '10 Aug 2016',
         status: 'scoping',
         metadata: {
           classes: [
@@ -64,6 +82,7 @@
         directorate: 'Health & Work',
         priority: 3,
         status: 'In development',
+        duedate: '25 Jan 2017',
         metadata: {
           classes: [
             'directorate-1',
@@ -80,6 +99,7 @@
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicin ex bland.',
         priority: 4,
         status: 'Awaiting decision',
+        duedate: '17 Sep 2018',
         metadata: {
           classes: [
             'directorate-4',
@@ -281,7 +301,13 @@
         grid: $('.js-projects-grid').isotope({
           itemSelector: '.js-project-item',
           layoutMode: 'fitRows',
-          percentPosition: true
+          percentPosition: true,
+          getSortData: {
+            name: '.project-item__title', // text from querySelector
+            priority: '.project-item__priority__rating',
+            status: '.project-item__metadata__status__title',
+            date: '.project-item__metadata__list__date'
+          }
         }),
         
         handleDirectorateChange: function() {
@@ -307,10 +333,22 @@
               var $thisProject = $(this);
               $thisProject.on('click', function(e){
                 // var projectURL = $thisProject.attr('data-detail-url');
+                self.grid.isotope({ filter: actionString });
                 
               });
             });
             
+          }
+        },
+        
+        handleSorting: function() {
+          
+          var self = this;
+          $sorter = $('.js-sort-select');
+          if($sorter.length){
+            $sorter.on('change', function(e){
+                self.grid.isotope({ sortBy: $(this).val() });
+            });  
           }
         },
         
@@ -319,7 +357,9 @@
           self.handleFilterActions();
           self.handleDirectorateChange();
           self.handleProjects();
+          self.handleSorting();
         }
+        
       }
       
       pp.init();
