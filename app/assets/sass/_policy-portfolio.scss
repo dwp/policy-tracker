@@ -38,6 +38,7 @@
     background: #000;
     color: #fff;
     padding: 5px;
+    margin-bottom: 30px;
     &__logo,
     &__label {
       display: inline-block;
@@ -52,11 +53,11 @@
 }
 
 $rating-colours:(
-  1: #e7980f,
-  2: yellow,
-  3: green,
-  4: blue,
-  5: red
+  1: $turquoise,
+  2: $light-blue,
+  3: $yellow,
+  4: $orange,
+  5: $mellow-red
 );
 
 .l-portfolio {
@@ -80,8 +81,8 @@ $rating-colours:(
   
   box-sizing: border-box;
   border: 2px solid #ccc;
-  padding: 10px;
-  margin: 0 0 15px 0;
+  padding: 25px;
+  margin: 0 0 20px 0;
   
   &__title {
     margin: 0 0 5px 0;
@@ -103,23 +104,28 @@ $rating-colours:(
         font-weight: bold;
       }
     }
+    
+    &__status {
+      padding: 15px;
+      background: $grey-4;
+      margin-bottom: 20px;
+      &__title,
+      &__label {
+        margin: 0;
+      }
+    }
+    
   }
   
   &__priority {
-    &__rating,
-    &__label {
-      display: inline-block;
-      vertical-align: middle;
-    }
     
-    &__rating {
-      background: #6db4e1;
+      background-color: #6db4e1;
       color: #000;
       text-align: center;
       padding: 10px 15px;
-      font-size: 22px;
       font-weight: bold;
       vertical-align: middle;
+      display: inline-block;
       
       @each $rating, $colour in $rating-colours {
         &--#{$rating} {
@@ -127,10 +133,18 @@ $rating-colours:(
         }
       }
       
-    }
     &__label {
-      margin-right: 10px;
+      font-size: 12px;
+      color: #fff;
     }
+    
+    &__rating {
+      color: #fff;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 30px;
+    }
+
   }
   
   &__keydata {
@@ -141,7 +155,7 @@ $rating-colours:(
   
   @each $rating, $colour in $rating-colours {
     &--priority-#{$rating} {
-      background-color: rgba($colour,0.04);
+      // background-color: rgba($colour,0.5);
     }
   }
   

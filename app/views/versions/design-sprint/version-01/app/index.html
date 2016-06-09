@@ -6,7 +6,7 @@
   html_classes: ['full-width']
 } %}
 
-{% block portfolio_header %}
+{# {% block portfolio_header %}
   <div class="portfolio_header">
     <div class="grid grid--middle">
       <div class="grid__item two-thirds">
@@ -14,17 +14,22 @@
       </div>
     </div>
   </div>
-{% endblock %}
+{% endblock %} #}
 
 {% block portfolio_projects %}
   
-  <h2 class="heading-large" style="margin: 0 0 20px 0">All directorates</h2>
+  <h2 class="heading-large js-directorate-label" style="margin: 0 0 20px 0">All directorates</h2>
   
   <div class="grid js-projects-grid">
       {{ portfolio.project_item({
+        title: 'ESA Programme',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
+        director: 'Justin Russell',
+        status: 'open',
         priority: 1,
         metadata: {
           classes: [
+            'directorate-1',
             'priority-1',
             'minister-1',
             'status-open',
@@ -34,36 +39,50 @@
         }
       }) }}
       {{ portfolio.project_item({
+        title: 'ESA Work Related Activity Component removal',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
+        director: 'Justin Russell',
         priority: 2,
+        status: 'scoping',
         metadata: {
           classes: [
+            'directorate-2',
             'priority-2',
             'minister-2',
-            'status-open',
+            'status-scoping',
             'type-2',
             'trigger-2'
           ]
         }
       }) }}
       {{ portfolio.project_item({
+        title: 'Fit for work',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
+        director: 'Tracey Waltho',
         priority: 3,
+        status: 'In development',
         metadata: {
           classes: [
+            'directorate-3',
             'priority-3',
             'minister-3',
-            'status-open',
+            'status-development',
             'type-3',
             'trigger-3'
           ]
         }
       }) }}
       {{ portfolio.project_item({
+        title: 'Digital job centres',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicin ex bland.',
         priority: 4,
+        status: 'Awaiting decision',
         metadata: {
           classes: [
+            'directorate-4',
             'priority-4',
             'minister-4',
-            'status-open',
+            'status-decision',
             'type-4',
             'trigger-4'
           ]
@@ -71,8 +90,10 @@
       }) }}
       {{ portfolio.project_item({
         priority: 5,
+        status: 'open',
         metadata: {
           classes: [
+            'directorate-5',
             'priority-5',
             'minister-5',
             'status-open',
@@ -85,6 +106,7 @@
         priority: 5,
         metadata: {
           classes: [
+            'directorate-6',
             'priority-5',
             'minister-2',
             'status-development',
@@ -97,6 +119,7 @@
         priority: 2,
         metadata: {
           classes: [
+            'directorate-7',
             'priority-2',
             'minister-3',
             'status-closed',
@@ -109,6 +132,7 @@
         priority: 3,
         metadata: {
           classes: [
+            'directorate-8',
             'priority-3',
             'minister-4',
             'status-decision',
@@ -128,13 +152,17 @@
     
     <div class="portfolio-filters__facet">
       <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-directorate">Directorate</label>
-      <select class="form-control portfolio-filters__select js-filter-action" id="facet-directorate">
+      <select class="form-control portfolio-filters__select js-filter-action js-filter-directorate" id="facet-directorate">
         <option value="directorate-all">All directorates</option>
-        <option value="directorate-one">Directorate one</option>
-        <option value="directorate-two">Directorate two</option>
-        <option value="directorate-three">Directorate three</option>
-        <option value="directorate-four">Directorate four</option>
-        <option value="directorate-five">Directorate five</option>
+        <option value="directorate-1">Health & Work</option>
+        <option value="directorate-2">State pensions ageing society</option>
+        <option value="directorate-3">Working age benefit</option>
+        <option value="directorate-4">Analytical services</option>
+        <option value="directorate-5">Children, Families & Disadvantage</option>
+        <option value="directorate-6">Labour market, EU & International affairs</option>
+        <option value="directorate-8">Disability employment support</option>
+        <option value="directorate-9">Devolution</option>
+        <option value="directorate-10">Strategic Health & Science</option>
       </select>
     </div>
     
@@ -143,19 +171,19 @@
       <div class="portfolio-filters__facet">
         <label for="facet-type-1">
           <input id="facet-type-1" name="types" type="checkbox" value="type-1" class="js-filter-action">
-          Type label
+          White & Green papers
         </label>
       </div>
       <div class="portfolio-filters__facet">
         <label for="facet-type-2">
           <input id="facet-type-2" name="types" type="checkbox" value="type-2" class="js-filter-action">
-          Type label
+          Legislation
         </label>
       </div>
       <div class="portfolio-filters__facet">
         <label for="facet-type-3">
           <input id="facet-type-3" name="types" type="checkbox" value="type-3" class="js-filter-action">
-          Type label
+          Support / Advice
         </label>
       </div>
     </div>
@@ -164,11 +192,9 @@
       <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-minister">Minister</label>
       <select class="form-control portfolio-filters__select js-filter-action" id="facet-minister">
         <option value="minister-all">All ministers</option>
-        <option value="minister-1">First name Surname</option>
-        <option value="minister-2">First name Surname</option>
-        <option value="minister-3">First name Surname</option>
-        <option value="minister-4">First name Surname</option>
-        <option value="minister-5">First name Surname</option>
+        <option value="minister-1">Secretary of State</option>
+        <option value="minister-2">Secretary of State for Justice</option>
+        <option value="minister-3">Leader of the House of Commons</option>
       </select>
     </div>
     
@@ -176,10 +202,13 @@
       <label class="portfolio-filters__facet__title heading-small" style="display: block" for="facet-trigger">Trigger</label>
       <select class="form-control portfolio-filters__select js-filter-action" id="facet-trigger">
         <option value="trigger-all">All triggers</option>
-        <option value="trigger-1">Trigger</option>
-        <option value="trigger-2">Trigger</option>
-        <option value="trigger-3">Trigger</option>
-        <option value="trigger-4">Trigger</option>
+        <option value="trigger-1">Minsiter</option>
+        <option value="trigger-2">No. 10</option>
+        <option value="trigger-3">Arms length body</option>
+        <option value="trigger-4">Legislation</option>
+        <option value="trigger-5">EU</option>
+        <option value="trigger-6">Legal / Court Rulings</option>
+        <option value="trigger-7">Treasury</option>
       </select>
     </div>
     
@@ -244,9 +273,41 @@
           percentPosition: true
         }),
         
+        handleDirectorateChange: function() {
+          var self = this;
+          var $directorateSelect = $('.js-filter-directorate');
+          var $directorateLabel = $('.js-directorate-label');
+          if($directorateSelect.length) {
+              
+            $directorateSelect.on("change", function(e){
+              var $this = $(this);
+              $directorateLabel.text($this.find(":selected").text());
+            });
+            
+          }
+        },
+        
+        handleProjects: function() {
+          var self = this;
+          var $projects = $('.project-item');
+          if($projects.length) {
+            
+            $projects.each(function(){
+              var $thisProject = $(this);
+              $thisProject.on('click', function(e){
+                // var projectURL = $thisProject.attr('data-detail-url');
+                
+              });
+            });
+            
+          }
+        },
+        
         init: function() {
           var self = this;
           self.handleFilterActions();
+          self.handleDirectorateChange();
+          self.handleProjects();
         }
       }
       
