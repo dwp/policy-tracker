@@ -1,0 +1,90 @@
+{% extends prototype.current.layout %}
+
+{% set page = {
+  title: 'index',
+  dev: true,
+  body_classes: ['full-width']
+} %}
+
+{% block main %}
+
+<div class="l-portfolio">
+  
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">        
+      <h1 class="heading-xlarge projectname">Project Name</h1>
+      <p class="font-medium">Type of work</p>
+      <p>Status</p>
+      {# <img src="/public/images/timeline.png" style="width:100%;max-width:768px" />     #}
+    </div>
+    
+    <div class="column-one-third" style="padding-top:30px;">    
+      <p class="data"> <span class="label">Deadline</span><br /> 30th November 2016 </p>
+      <p class="data"> <span class="label">Priority</span><br /> 4 </p>
+    </div>
+    
+    <div class="column-full" style="padding-top:15px">
+      
+      <div class="section-tabs js-tabs clearfix">
+        <ul>
+          <li class="active"> <a href="project">Summary</a> </li>
+          <li class=""> <a href="team">Team</a> </li>
+          <li class=""> <a href="history">History</a> </li>
+          <li class=""> <a href="team">Financals</a> </li>
+        </ul>
+      </div>
+      
+      <div class="grid-row">
+        <div class="column-third">
+          <div class="timeline-graphic">&nbsp;</div>
+        </div>
+        <div class="column-two-thirds">
+          <div style="padding-top:30px;">
+            
+            <div class="media">
+              <div class="img"> <img src="/public/images/tick.svg" alt="me" width="50px" style="margin:10px"/> </div>
+              <div class="bd">
+                <p class="date">1st Jun 2016</p>
+                <h3 class="heading-small heading-top" style="">Approval recieved</h3>
+                <p class="font-medium">Minister confirmed. No changes. Full go ahead to proceed.</p>
+                <p><a href="#">Rodney Flanagan</a></p>              
+              </div>
+            </div><!-- .media -->
+            
+            <div class="media">
+              <div class="img"> <img src="/public/images/up.svg" alt="me" width="50px" style="margin:10px"/> </div>
+              <div class="bd">
+                <h3 class="heading-small heading-top" style="">Submission sent</h3>
+                <p class="date">21st April 2016</p>
+                <p class="font-medium">Completed initial submission and sent back to Minister for approval</p>
+                <p>Rodney Flanagan</p>              
+              </div>
+            </div><!-- .media -->
+            
+            <div class="media">
+              <div class="img"> <img src="/public/images/doc.svg" alt="me" width="50px" style="margin:10px"/> </div>
+              <div class="bd">
+                <h3 class="heading-small heading-top" style="">Research complete</h3>
+                <p class="date">2nd March 2016</p>
+                <p class="font-medium">Research complete submission started.</p>
+                <p>Rodney Flanagan</p>              
+              </div>
+            </div><!-- .media -->
+            
+          </div>
+        </div>
+        <div class="column-half">
+          
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+  
+  {# <hr style="position:absolute;top:105px;left:0;width:100%;background-color:red;" /> #}
+</div>
+
+  
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends prototype.current.layout %}
+
+{% set page = {
+  title: 'index',
+  dev: true,
+  body_classes: ['full-width']
+} %}
+
+{% block main %}
+<div class="l-portfolio">
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">        
+      <h1 class="heading-xlarge projectname">Project Name</h1>
+      <p class="font-medium">Type of work</p>
+      <p>Status</p>
+      {# <img src="/public/images/timeline.png" style="width:100%;max-width:768px" />     #}
+    </div>
+    
+    <div class="column-one-third" style="padding-top:30px;">    
+      <p class="data"> <span class="label">Deadline</span><br /> 30th November 2016 </p>
+      <p class="data"> <span class="label">Priority</span><br /> 4 </p>
+    </div>
+    
+    <div class="column-full" style="padding-top:15px">
+      
+      <div class="section-tabs js-tabs clearfix">
+        <ul>
+          <li class=""> <a href="project">Summary</a> </li>
+          <li class="active"> <a href="team">Team</a> </li>
+          <li class=""> <a href="history">History</a> </li>
+          <li class=""> <a href="team">Financals</a> </li>
+        </ul>
+      </div>
+      
+      <div class="grid-row">
+        <div class="column-full">
+                  
+          <div class="team clearfix">        
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Susan Parks (SRO)</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+                  
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Jeremy Moore</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Jessica Wheeler</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Beverly Perkins</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Martha Waters</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Eric Wilson</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Rob Danger</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Martha Waters</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Eric Wilson</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+            
+            <div class="member">
+              <img src="/public/images/person2.png" style="width:62%;margin:0 auto"/>
+              <p class="bold-medium">Rob Danger</p>
+              <p>Job Description</p>
+              <p>Department / Job Family</p>
+              <p><a href="#">tel: 08987 875 6364</a></p>
+              <p class="font-xsmall"><a href="#" class="button">View profile</a></p>
+            </div>
+          
+          </div>
+            
+        </div>
+
+      </div>
+      
+      
+    </div>
+  </div>
+
+  {# <hr style="position:absolute;top:105px;left:0;width:100%;background-color:red;" /> #}
+  
+</div>
+{% endblock %}

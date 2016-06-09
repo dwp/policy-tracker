@@ -2,6 +2,10 @@
 @import 'policy_portfolio/settings';
 @import 'policy_portfolio/sass-mq';
 @import 'policy_portfolio/grids';
+@import 'policy_portfolio/page';
+@import 'policy_portfolio/tabs';
+@import 'policy_portfolio/clearfix';
+@import 'policy_portfolio/media';
 @import 'policy_portfolio/generic';
 
 .full-width {
@@ -63,6 +67,7 @@ $rating-colours:(
 .l-portfolio {
   width: 95%;
   margin: 0 auto;
+  display: block;
 }
 
 .portfolio {
