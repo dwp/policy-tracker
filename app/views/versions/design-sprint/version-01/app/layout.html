@@ -17,18 +17,18 @@
     {% endblock %}
   </div>
 
-  <div class="grid grid--wide grid--rev">
+  <div class="grid grid--wide">
     
-    <div class="grid__item  medium--two-thirds large--four-fifths">
-      <div class="l-portfolio__projects">
-        {% block portfolio_projects %}
-        {% endblock %}
-      </div>
-    </div>
-    
-    <div class="grid__item medium--one-third large--one-fifth">
+    <div class="grid__item one-whole medium--one-quarter large--one-sixth">
       <div class="l-portfolio__filters">      
         {% block portfolio_filters %}
+        {% endblock %}
+      </div>
+    </div>    
+    
+    <div class="grid__item one-whole medium--three-quarters large--five-sixths">
+      <div class="l-portfolio__projects">
+        {% block portfolio_projects %}
         {% endblock %}
       </div>
     </div>

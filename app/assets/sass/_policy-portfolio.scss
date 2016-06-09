@@ -68,6 +68,11 @@ $rating-colours:(
   width: 95%;
   margin: 0 auto;
   display: block;
+  &__filters {
+    @mq($until: medium) {
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .portfolio {

@@ -3227,6 +3227,12 @@ input[type=number] {
   display: block;
 }
 
+@mq ($until: medium) {
+  .l-portfolio__filters {
+    margin-bottom: 20px;
+  }
+}
+
 .portfolio-filters__select {
   width: 100%;
 }

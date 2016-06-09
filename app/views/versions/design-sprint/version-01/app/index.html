@@ -6,16 +6,6 @@
   html_classes: ['full-width']
 } %}
 
-{# {% block portfolio_header %}
-  <div class="portfolio_header">
-    <div class="grid grid--middle">
-      <div class="grid__item two-thirds">
-        <h1 class="heading-xlarge js-directorates-title">Portfolio Overview</h1>
-      </div>
-    </div>
-  </div>
-{% endblock %} #}
-
 {% block portfolio_projects %}
   
   <div class="grid">
@@ -38,150 +28,302 @@
   </div>
   
   <div class="grid js-projects-grid">
-      {{ portfolio.project_item({
-        title: 'ESA Programme',
-        description: 'A series of work strands to reform ESA interal assessment centres, business transformation...',
-        director: 'Justin Russell',
-        directorate: 'Disability Employment Support',
-        status: 'open',
-        priority: 1,
-        metadata: {
-          classes: [
-            'directorate-1',
-            'priority-1',
-            'minister-1',
-            'status-open',
-            'type-1',
-            'trigger-1'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'ESA Work Related Activity Component removal',
-        description: 'Removal of WRA components of ESA.',
-        director: 'Justin Russell',
-        directorate: 'Disability Employment Support',
-        priority: 2,
-        duedate: '10 Aug 2016',
-        status: 'scoping',
-        metadata: {
-          classes: [
-            'directorate-1',
-            'priority-2',
-            'minister-2',
-            'status-scoping',
-            'type-2',
-            'trigger-2'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'Pension Reform 2',
-        description: 'Allocating the equalisation of State Pension Age and extending SPA to 66 more quickly.',
-        director: 'Mary Pattison & Charlotte Clark',
-        directorate: 'State Pensions Aging Society',
-        priority: 3,
-        status: 'In development',
-        duedate: '25 Jan 2017',
-        metadata: {
-          classes: [
-            'directorate-1',
-            'priority-3',
-            'minister-3',
-            'status-development',
-            'type-3',
-            'trigger-3'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'State Pension TopUp',
-        description: 'Enabling people to increase State Pension Entitlement through purchase of additional voluntary NI contributions.',
-        priority: 4,
-        status: 'Awaiting decision',
-        directorate: 'State Pensions Aging Society',
-        director: 'Mary Pattison & Charlotte Clark',
-        duedate: '17 Sep 2018',
-        metadata: {
-          classes: [
-            'directorate-4',
-            'priority-4',
-            'minister-4',
-            'status-decision',
-            'type-4',
-            'trigger-4'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'Personal Independance Programme',
-        description: 'A new objective assessment for working age customers and re-assessment of existing DLA recipients.',
-        priority: 5,
-        status: 'open',
-        director: 'Sue Moore',
-        directorate: 'PIP',
-        metadata: {
-          classes: [
-            'directorate-11',
-            'priority-5',
-            'minister-5',
-            'status-open',
-            'type-5',
-            'trigger-5'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'Automatic Enrolment Programme',
-        description: 'A programme which requires employers to automatically enroll employees into a qualifying workplace pension.',
-        directorate: 'State Pensions Aging Society',
-        director: 'Charlotte Clark',
-        priority: 5,
-        metadata: {
-          classes: [
-            'directorate-6',
-            'priority-5',
-            'minister-2',
-            'status-development',
-            'type-2',
-            'trigger-3'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'Scottish Devolution Programme',
-        description: 'Implementing the Smith Commission Wealthfare recommendations for DWP - devolution of benefit and services...',
-        priority: 2,
-        directorate: 'Devolution',
-        director: 'Richard Cornish',
-        metadata: {
-          classes: [
-            'directorate-7',
-            'priority-2',
-            'minister-3',
-            'status-closed',
-            'type-3',
-            'trigger-4'
-          ]
-        }
-      }) }}
-      {{ portfolio.project_item({
-        title: 'State Pension Delivery Programme',
-        description: 'Delivering reforms to State Pension System including Single Tier, DB contracting out abolition...',
-        priority: 3,
-        directorate: 'State Pensions Aging Society',
-        director: 'Mary Pattison & Charlotte Clark',
-        metadata: {
-          classes: [
-            'directorate-8',
-            'priority-3',
-            'minister-4',
-            'status-decision',
-            'type-4',
-            'trigger-5'
-          ]
-        }
-      }) }}
+      
+      {% set projectsData = [
+        {
+          title: 'ESA Programme',
+          description: 'A series of work strands to reform ESA interal assessment centres, business transformation...',
+          director: 'Justin Russell',
+          directorate: 'Disability Employment Support',
+          status: 'open',
+          priority: 1,
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-1',
+              'minister-1',
+              'status-open',
+              'type-1',
+              'trigger-1'
+            ]
+          }
+        },
+        {
+          title: 'ESA Work Related Activity Component removal',
+          description: 'Removal of WRA components of ESA.',
+          director: 'Justin Russell',
+          directorate: 'Disability Employment Support',
+          priority: 2,
+          duedate: '10 Aug 2016',
+          status: 'scoping',
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-2',
+              'minister-2',
+              'status-scoping',
+              'type-2',
+              'trigger-2'
+            ]
+          }
+        },
+        {
+          title: 'Pension Reform 2',
+          description: 'Allocating the equalisation of State Pension Age and extending SPA to 66 more quickly.',
+          director: 'Mary Pattison & Charlotte Clark',
+          directorate: 'State Pensions Aging Society',
+          priority: 3,
+          status: 'In development',
+          duedate: '25 Jan 2017',
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-3',
+              'minister-3',
+              'status-development',
+              'type-3',
+              'trigger-3'
+            ]
+          }
+        },
+        {
+          title: 'State Pension TopUp',
+          description: 'Enabling people to increase State Pension Entitlement through purchase of additional voluntary NI contributions.',
+          priority: 4,
+          status: 'Awaiting decision',
+          directorate: 'State Pensions Aging Society',
+          director: 'Mary Pattison & Charlotte Clark',
+          duedate: '17 Sep 2018',
+          metadata: {
+            classes: [
+              'directorate-4',
+              'priority-4',
+              'minister-4',
+              'status-decision',
+              'type-4',
+              'trigger-4'
+            ]
+          }
+        },
+        {
+          title: 'Personal Independance Programme',
+          description: 'A new objective assessment for working age customers and re-assessment of existing DLA recipients.',
+          priority: 5,
+          status: 'open',
+          director: 'Sue Moore',
+          directorate: 'PIP',
+          metadata: {
+            classes: [
+              'directorate-11',
+              'priority-5',
+              'minister-5',
+              'status-open',
+              'type-5',
+              'trigger-5'
+            ]
+          }
+        },
+        {
+          title: 'Automatic Enrolment Programme',
+          description: 'A programme which requires employers to automatically enroll employees into a qualifying workplace pension.',
+          directorate: 'State Pensions Aging Society',
+          director: 'Charlotte Clark',
+          priority: 5,
+          metadata: {
+            classes: [
+              'directorate-6',
+              'priority-5',
+              'minister-2',
+              'status-development',
+              'type-2',
+              'trigger-3'
+            ]
+          }
+        },
+        {
+          title: 'Scottish Devolution Programme',
+          description: 'Implementing the Smith Commission Wealthfare recommendations for DWP - devolution of benefit and services...',
+          priority: 2,
+          directorate: 'Devolution',
+          director: 'Richard Cornish',
+          metadata: {
+            classes: [
+              'directorate-7',
+              'priority-2',
+              'minister-3',
+              'status-closed',
+              'type-3',
+              'trigger-4'
+            ]
+          }
+        },
+        {
+          title: 'State Pension Delivery Programme',
+          description: 'Delivering reforms to State Pension System including Single Tier, DB contracting out abolition...',
+          priority: 3,
+          directorate: 'State Pensions Aging Society',
+          director: 'Mary Pattison & Charlotte Clark',
+          metadata: {
+            classes: [
+              'directorate-8',
+              'priority-3',
+              'minister-4',
+              'status-decision',
+              'type-4',
+              'trigger-5'
+            ]
+          }
+        },
+        {
+          title: 'ESA Programme',
+          description: 'A series of work strands to reform ESA interal assessment centres, business transformation...',
+          director: 'Justin Russell',
+          directorate: 'Disability Employment Support',
+          status: 'open',
+          priority: 1,
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-1',
+              'minister-1',
+              'status-open',
+              'type-1',
+              'trigger-1'
+            ]
+          }
+        },
+        {
+          title: 'ESA Work Related Activity Component removal',
+          description: 'Removal of WRA components of ESA.',
+          director: 'Justin Russell',
+          directorate: 'Disability Employment Support',
+          priority: 2,
+          duedate: '10 Aug 2016',
+          status: 'scoping',
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-2',
+              'minister-2',
+              'status-scoping',
+              'type-2',
+              'trigger-2'
+            ]
+          }
+        },
+        {
+          title: 'Pension Reform 2',
+          description: 'Allocating the equalisation of State Pension Age and extending SPA to 66 more quickly.',
+          director: 'Mary Pattison & Charlotte Clark',
+          directorate: 'State Pensions Aging Society',
+          priority: 3,
+          status: 'In development',
+          duedate: '25 Jan 2017',
+          metadata: {
+            classes: [
+              'directorate-1',
+              'priority-3',
+              'minister-3',
+              'status-development',
+              'type-3',
+              'trigger-3'
+            ]
+          }
+        },
+        {
+          title: 'State Pension TopUp',
+          description: 'Enabling people to increase State Pension Entitlement through purchase of additional voluntary NI contributions.',
+          priority: 4,
+          status: 'Awaiting decision',
+          directorate: 'State Pensions Aging Society',
+          director: 'Mary Pattison & Charlotte Clark',
+          duedate: '17 Sep 2018',
+          metadata: {
+            classes: [
+              'directorate-4',
+              'priority-4',
+              'minister-4',
+              'status-decision',
+              'type-4',
+              'trigger-4'
+            ]
+          }
+        },
+        {
+          title: 'Personal Independance Programme',
+          description: 'A new objective assessment for working age customers and re-assessment of existing DLA recipients.',
+          priority: 5,
+          status: 'open',
+          director: 'Sue Moore',
+          directorate: 'PIP',
+          metadata: {
+            classes: [
+              'directorate-11',
+              'priority-5',
+              'minister-5',
+              'status-open',
+              'type-5',
+              'trigger-5'
+            ]
+          }
+        },
+        {
+          title: 'Automatic Enrolment Programme',
+          description: 'A programme which requires employers to automatically enroll employees into a qualifying workplace pension.',
+          directorate: 'State Pensions Aging Society',
+          director: 'Charlotte Clark',
+          priority: 5,
+          metadata: {
+            classes: [
+              'directorate-6',
+              'priority-5',
+              'minister-2',
+              'status-development',
+              'type-2',
+              'trigger-3'
+            ]
+          }
+        },
+        {
+          title: 'Scottish Devolution Programme',
+          description: 'Implementing the Smith Commission Wealthfare recommendations for DWP - devolution of benefit and services...',
+          priority: 2,
+          directorate: 'Devolution',
+          director: 'Richard Cornish',
+          metadata: {
+            classes: [
+              'directorate-7',
+              'priority-2',
+              'minister-3',
+              'status-closed',
+              'type-3',
+              'trigger-4'
+            ]
+          }
+        },
+        {
+          title: 'State Pension Delivery Programme',
+          description: 'Delivering reforms to State Pension System including Single Tier, DB contracting out abolition...',
+          priority: 3,
+          directorate: 'State Pensions Aging Society',
+          director: 'Mary Pattison & Charlotte Clark',
+          metadata: {
+            classes: [
+              'directorate-8',
+              'priority-3',
+              'minister-4',
+              'status-decision',
+              'type-4',
+              'trigger-5'
+            ]
+          }
+        }  
+      ] %}
+      
+      {% for project in projectsData %}
+        {{ portfolio.project_item(project) }}
+      {% endfor %}
+      
   </div>
 {% endblock %}
 
