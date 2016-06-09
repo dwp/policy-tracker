@@ -54,11 +54,18 @@
   #content {
     max-width:none;
     padding:0;
-    margin:0;
+    margin:15px 60px;
   }  
-  
   #footer {
     display:none;
+  }  
+  #global-header.with-proposition .header-wrapper .header-global .header-logo {
+    padding-left:30px;
   }
   
 }
+
+@import 'project/page';
+@import 'project/tabs';
+@import 'project/clearfix';
+@import 'project/media';
