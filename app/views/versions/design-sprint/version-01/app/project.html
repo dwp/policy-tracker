@@ -6,8 +6,108 @@
   body_classes: ['full-width']
 } %}
 
-{% block primary %}
+{% block main %}
 
-  <h1 class="heading-xlarge">Project Name</h1>
+<div class="grid-row">
+  
+  <div class="column-two-thirds">        
+    <h1 class="heading-xlarge projectname">Project Name</h1>
+    <p class="font-medium">Type of work</p>    
+  </div>
+  
+  <div class="column-one-third" style="padding-top:30px;">    
+    <div class="details-box clearfix">
+      <div class="priority">Priority<br /><span class="priority-num">4</span> </div>
+      <p class="data"> <span class="label">Deadline</span><br /> 30th November 2016 </p>
+      <p class="data"> <span class="label">Minister</span><br /> Justin Tomlinson </p>
+    </div>
+  </div>
+  
+  <div class="column-full">
+    <img src="/public/images/timeline.svg" style="width:100%;" />    
+  </div>
+  
+  <div class="column-full" style="padding-top:15px">
+    
+    <div class="section-tabs js-tabs clearfix">
+      <ul>
+        <li class="active"> <a href="project">Summary</a> </li>
+        <li class=""> <a href="history">History</a> </li>
+        <li class=""> <a href="team">Team</a> </li>
+      </ul>
+    </div>
+    
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="box">
+          <dl>
+            <dt class="bold-small">Date started</dt>
+            <dd>15th September 2015</dd>
+            <dt class="bold-small" style="margin-top:10px;">Description</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac odio pellentesque, semper risus eu, tempus nulla. Nulla nec laoreet sapien, ut pulvinar ex. Sed gravida tristique elit, sed tincidunt metus maximus sit amet.</dd>            
+          </dl>
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="box">
+          <h2 class="heading-small" style="margin-top:0;">Milestones</h2>
+          <ul class="list-bullet">
+            <li><span class="date">21st June 2016</span> &mdash; Consectetur adipiscing sdlaslkj</li>
+            <li><span class="date">2nd July 2016</span> &mdash; Nulla nec laoreet sapien</li>
+            <li><span class="date">5th September 2016</span> &mdash; Consectetur adipiscing</li>
+            <li><span class="date">19th October 2016</span> &mdash; Nulla nec laoreet sapien</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid-row">
+      <div class="column-half">
+        <h3 class="heading-large">Objectives</h3>
+        <p>Phasellus lorem est, pretium vitae vulputate quis, elementum vitae ante. Cras sagittis augue ex, ut faucibus nisi semper a. Aliquam eget lobortis urna. Phasellus ornare diam at nisl mollis dapibus. Phasellus pulvinar efficitur tortor eget tempor. Praesent at lectus vel tortor pharetra suscipit. Quisque sit amet rutrum augue. Vivamus vitae mauris eu dolor ornare tempor. Aliquam dapibus diam sit amet tellus rhoncus convallis. Vivamus fringilla dapibus eleifend.</p>
+        <h3 class="heading-large">Risks</h3>
+        <p>Phasellus lorem est, pretium vitae vulputate quis, elementum vitae ante. Cras sagittis augue ex, ut faucibus nisi semper.</p>
+        <h3 class="heading-large">Mitigations</h3>
+        <p>Phasellus lorem est, pretium vitae vulputate quis, elementum vitae ante. Cras sagittis augue ex, ut faucibus nisi semper a. Aliquam eget lobortis urna. Phasellus ornare diam at nisl mollis dapibus. Phasellus pulvinar efficitur tortor eget tempor.</p>
+      </div>
+      <div class="column-half">
+        <h3 class="heading-large">Team (9)</h3>
+        <div class="media">
+          <div class="img"> <img src="/public/images/person.png" alt="me" width="50px"/> </div>
+          <div class="bd">
+            <h3 class="heading-small heading-top" style="">Robert Hampton (G7)</h3>
+            <a class="button" href="">View profile</a>
+          </div>
+        </div><!-- .media -->
+        <div class="media">
+          <div class="img"> <img src="/public/images/person2.png" alt="me" width="50px"/> </div>
+          <div class="bd">
+            <h3 class="heading-small heading-top" style="">Wendy Sanberg (G6)</h3>
+            <a class="button" href="">View profile</a>
+          </div>
+        </div><!-- .media -->
+        <div class="media">
+          <div class="img"> <img src="/public/images/person2.png" alt="me" width="50px"/> </div>
+          <div class="bd">
+            <h3 class="heading-small heading-top" style="">Frank Guicionne (SEO)</h3>
+            <a class="button" href="">View profile</a>
+          </div>
+        </div><!-- .media -->
+        <div class="media">
+          <div class="img"> <img src="/public/images/person.png" alt="me" width="50px"/> </div>
+          <div class="bd">
+            <h3 class="heading-small heading-top" style="">Sanjay Singh (G7)</h3>
+            <a class="button" href="">View profile</a>
+          </div>
+        </div><!-- .media -->
+        <p><a href="team" class="button">Full team</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{# <hr style="position:absolute;top:105px;left:0;width:100%;background-color:red;" /> #}
+
   
 {% endblock %}
