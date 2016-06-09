@@ -98,3 +98,16 @@
   color:$mellow-red;
   @include bold-19;
 }
+
+.back-link a:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 6px solid #005ea5;
+  border-bottom: 4px solid transparent;
+  position: relative;
+  top: -2px;
+  margin-right: 0.25em;
+}
