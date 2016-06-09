@@ -8,8 +8,8 @@
 }
 
 .box {
-  background:$grey-3;
-  padding:30px 30px 30px 30px;
+  // background:$grey-3;
+  // padding:30px 30px 30px 30px;
   margin-top:30px;
 }
 .date {
@@ -42,7 +42,18 @@
 }
 
 .details-box {
+  position:relative;
   border:1px solid $beta-colour;
+  cursor:pointer;
+  @include core-16;
+  .label {
+    @include bold-16;
+  }
+  p {
+    float:left;
+    margin:5px;
+    margin-left:10px;
+  }
   .priority {
     width:38%;
     float:left;
@@ -54,4 +65,34 @@
       @include bold-80();
     }
   }
+  .reasons {
+    display:none;
+    &.show{display:block}
+    position:absolute;
+    top:100%;
+    left:0;
+    border:1px solid $beta-colour;
+    background-color:white;
+    padding:15px;
+    .heading {
+      margin:0 0 10px;
+      @include bold-19;      
+    }
+    p {
+      margin:0;
+    }
+  }
+}
+
+.person-details {
+  p {
+    margin-bottom:0;
+  }
+  .button {
+    margin:10px 0;
+  }
+}
+.alert {
+  color:$mellow-red;
+  @include bold-19;
 }
