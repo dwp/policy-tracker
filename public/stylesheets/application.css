@@ -2888,22 +2888,22 @@ input[type=number] {
   margin: 0;
 }
 
-.project-item--1 {
+.project-item--priority-1 {
   background-color: rgba(231, 152, 15, 0.04);
 }
 
-.project-item--2 {
+.project-item--priority-2 {
   background-color: rgba(255, 255, 0, 0.04);
 }
 
-.project-item--3 {
+.project-item--priority-3 {
   background-color: rgba(0, 128, 0, 0.04);
 }
 
-.project-item--4 {
+.project-item--priority-4 {
   background-color: rgba(0, 0, 255, 0.04);
 }
 
-.project-item--5 {
+.project-item--priority-5 {
   background-color: rgba(255, 0, 0, 0.04);
 }

@@ -140,7 +140,7 @@ $rating-colours:(
   }
   
   @each $rating, $colour in $rating-colours {
-    &--#{$rating} {
+    &--priority-#{$rating} {
       background-color: rgba($colour,0.04);
     }
   }
