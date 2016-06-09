@@ -69,7 +69,9 @@ $rating-colours:(
   margin: 0 auto;
   display: block;
   &__filters {
-    @mq($until: medium) {
+    @include mq($until: medium) {
+      background: $grey-3;
+      padding: 20px;
       margin-bottom: 20px;
     }
   }

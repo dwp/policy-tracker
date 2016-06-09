@@ -3227,8 +3227,10 @@ input[type=number] {
   display: block;
 }
 
-@mq ($until: medium) {
+@media (max-width: 47.99em) {
   .l-portfolio__filters {
+    background: #dee0e2;
+    padding: 20px;
     margin-bottom: 20px;
   }
 }
