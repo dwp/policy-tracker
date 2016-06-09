@@ -40,9 +40,9 @@
   <div class="grid js-projects-grid">
       {{ portfolio.project_item({
         title: 'ESA Programme',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
+        description: 'A series of work strands to reform ESA interal assessment centres, business transformation...',
         director: 'Justin Russell',
-        directorate: 'Health & Work',
+        directorate: 'Disability Employment Support',
         status: 'open',
         priority: 1,
         metadata: {
@@ -58,9 +58,9 @@
       }) }}
       {{ portfolio.project_item({
         title: 'ESA Work Related Activity Component removal',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
+        description: 'Removal of WRA components of ESA.',
         director: 'Justin Russell',
-        directorate: 'Health & Work',
+        directorate: 'Disability Employment Support',
         priority: 2,
         duedate: '10 Aug 2016',
         status: 'scoping',
@@ -76,10 +76,10 @@
         }
       }) }}
       {{ portfolio.project_item({
-        title: 'Fit for work',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ipsum ex bland.',
-        director: 'Tracey Waltho',
-        directorate: 'Health & Work',
+        title: 'Pension Reform 2',
+        description: 'Allocating the equalisation of State Pension Age and extending SPA to 66 more quickly.',
+        director: 'Mary Pattison & Charlotte Clark',
+        directorate: 'State Pensions Aging Society',
         priority: 3,
         status: 'In development',
         duedate: '25 Jan 2017',
@@ -95,10 +95,12 @@
         }
       }) }}
       {{ portfolio.project_item({
-        title: 'Digital job centres',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicin ex bland.',
+        title: 'State Pension TopUp',
+        description: 'Enabling people to increase State Pension Entitlement through purchase of additional voluntary NI contributions.',
         priority: 4,
         status: 'Awaiting decision',
+        directorate: 'State Pensions Aging Society',
+        director: 'Mary Pattison & Charlotte Clark',
         duedate: '17 Sep 2018',
         metadata: {
           classes: [
@@ -113,14 +115,14 @@
       }) }}
       {{ portfolio.project_item({
         title: 'Personal Independance Programme',
-        description: 'Lorem ipsum dolor sit amet',
+        description: 'A new objective assessment for working age customers and re-assessment of existing DLA recipients.',
         priority: 5,
         status: 'open',
         director: 'Sue Moore',
         directorate: 'PIP',
         metadata: {
           classes: [
-            'directorate-5',
+            'directorate-11',
             'priority-5',
             'minister-5',
             'status-open',
@@ -130,8 +132,10 @@
         }
       }) }}
       {{ portfolio.project_item({
-        title: 'Automatic Entrolment Programme',
-        description: 'Lorem ipsum dolor sit amet, con',
+        title: 'Automatic Enrolment Programme',
+        description: 'A programme which requires employers to automatically enroll employees into a qualifying workplace pension.',
+        directorate: 'State Pensions Aging Society',
+        director: 'Charlotte Clark',
         priority: 5,
         metadata: {
           classes: [
@@ -145,9 +149,11 @@
         }
       }) }}
       {{ portfolio.project_item({
-        title: 'Abolition of Assessed income period',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorum.',
+        title: 'Scottish Devolution Programme',
+        description: 'Implementing the Smith Commission Wealthfare recommendations for DWP - devolution of benefit and services...',
         priority: 2,
+        directorate: 'Devolution',
+        director: 'Richard Cornish',
         metadata: {
           classes: [
             'directorate-7',
@@ -160,7 +166,11 @@
         }
       }) }}
       {{ portfolio.project_item({
+        title: 'State Pension Delivery Programme',
+        description: 'Delivering reforms to State Pension System including Single Tier, DB contracting out abolition...',
         priority: 3,
+        directorate: 'State Pensions Aging Society',
+        director: 'Mary Pattison & Charlotte Clark',
         metadata: {
           classes: [
             'directorate-8',
@@ -194,6 +204,7 @@
         <option value="directorate-8">Disability employment support</option>
         <option value="directorate-9">Devolution</option>
         <option value="directorate-10">Strategic Health & Science</option>
+        <option value="directorate-11">Personal Independance Payment</option>
       </select>
     </div>
     
