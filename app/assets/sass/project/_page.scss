@@ -1,0 +1,57 @@
+.projectname {
+  margin-bottom:15px;
+}
+.column-full {
+  width:auto;
+  padding:0 15px;
+  clear:both;
+}
+
+.box {
+  background:$grey-3;
+  padding:30px 30px 30px 30px;
+  margin-top:30px;
+}
+.date {
+  color:$govuk-blue;
+}
+#logo {
+  width:36px;
+}
+.data {
+  text-align:right;
+  margin-bottom:10px;
+  .label {
+    @include bold-19();
+  }
+}
+
+.team {
+  padding:30px 0;
+}
+
+.member {
+  float:left;
+  width:20%;
+  margin-right:2%;
+  margin-bottom:2%;
+  text-align:center;
+  padding:10px;
+  border:1px solid $grey-2;
+  background-color:$grey-3;
+}
+
+.details-box {
+  border:1px solid $beta-colour;
+  .priority {
+    width:38%;
+    float:left;
+    color:white;
+    padding:15px 0 5px;
+    background-color:$beta-colour;
+    text-align:center;
+    .priority-num {
+      @include bold-80();
+    }
+  }
+}
