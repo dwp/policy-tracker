@@ -3176,26 +3176,13 @@ input[type=number] {
   display: none;
 }
 
-.full-width #global-header .header-wrapper {
-  max-width: none;
-}
-
 .full-width #footer .footer-wrapper {
   max-width: none;
-}
-
-.full-width #global-header #logo img {
-  width: 185.00px;
-  height: 31px;
 }
 
 .full-width #global-header-bar {
   display: none;
   max-width: none;
-}
-
-.full-width #global-header #logo img {
-  visibility: visible;
 }
 
 .full-width #content {
