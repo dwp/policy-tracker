@@ -11,6 +11,10 @@
 .full-width {
     background: #fff;
   
+  #global-cookie-message {
+    display: none;
+  }
+  
   #global-header .header-wrapper {
     max-width:none;
   }

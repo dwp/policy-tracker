@@ -3172,6 +3172,10 @@ input[type=number] {
   background: #fff;
 }
 
+.full-width #global-cookie-message {
+  display: none;
+}
+
 .full-width #global-header .header-wrapper {
   max-width: none;
 }
