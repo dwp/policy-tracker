@@ -1,0 +1,31 @@
+{% extends "layouts/dwp_layout.html" %}
+
+{% set page = {
+  title: 'index'
+} %}
+
+{% block head %}
+  <link href="/public/stylesheets/designsprint.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<main id="content">
+  {% include 'designsprint/top.html' %}
+  
+  {% include 'designsprint/intro.html' %}
+  {% include 'designsprint/why.html' %}
+  {% include 'designsprint/now.html' %}
+  {% include 'designsprint/goal.html' %}
+  {% include 'designsprint/sketching.html' %}
+  
+  {% include 'designsprint/gather.html' %}
+  {% include 'designsprint/page.html' %}
+  {% include 'designsprint/paper.html' %}
+  {% include 'designsprint/needs.html' %}
+  
+  {% include 'designsprint/html.html' %}
+  {% include 'designsprint/test.html' %}
+  {% include 'designsprint/plan.html' %}
+  {% include 'designsprint/show.html' %}
+</main>
+{% endblock %}
